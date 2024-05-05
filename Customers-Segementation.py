@@ -1456,17 +1456,17 @@ sns.countplot(data=sf_df, x='cluster', hue='Kids')
 plt.title('Kids Distribution Among Clusters')
 plt.show()
 
-Analyzing the data above, we can extract several attempts, such as:
+#Analyzing the data above, we can extract several attempts, such as:
 
-Cluster with highest 'Income' has highest 'Education_Level', highest 'Expenses' and 'TotalAcceptedCmp'
+#Cluster with highest 'Income' has highest 'Education_Level', highest 'Expenses' and 'TotalAcceptedCmp'
 
-The cluster with the lowest 'Income' has the lowest 'Kids', 'Age', 'Education_Level', 'highest 'Expenses', 'TotalAcceptedCmp' and 'n_clients
+#The cluster with the lowest 'Income' has the lowest 'Kids', 'Age', 'Education_Level', 'highest 'Expenses', 'TotalAcceptedCmp' and 'n_clients
 
-The cluster with the second highest 'Income' has high 'Age", high 'Education_Level' and high 'n_clients'
+#The cluster with the second highest 'Income' has high 'Age", high 'Education_Level' and high 'n_clients'
 
-The cluster with the third largest 'Income' has high 'Children' and the highest 'n_customers'
+#The cluster with the third largest 'Income' has high 'Children' and the highest 'n_customers'
 
-The 'Taken' variable is very close for all clusters.
+#The 'Taken' variable is very close for all clusters.
 
 from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_score
@@ -1481,7 +1481,7 @@ for num_clusters in range_n_clusters:
 plt.plot(ssd)
 plt.show()
 
-Gaussian Mixture Model
+#Gaussian Mixture Model
 
 from sklearn.mixture import GaussianMixture
 
@@ -1501,7 +1501,7 @@ plt.xlabel('K')
 plt.annotate('Optimal Point' ,(elbow, log_like_lst[elbow-1]), xytext=(elbow - 0.5,log_like_lst[elbow-2] + 3000))
 plt.show()
 
-GMM is a soft version of K-means, calculating the sample probability to different clusters. It is also a good clustering algorithm. Here, we use BIC to evluate the effectiveness of clustering. When K=8, the BIC score comes to the balanced point (will not show much improvement when increasing K), so we choose 8 as the final clustering result.
+#GMM is a soft version of K-means, calculating the sample probability to different clusters. It is also a good clustering algorithm. Here, we use BIC to evluate the effectiveness of clustering. When K=8, the BIC score comes to the balanced point (will not show much improvement when increasing K), so we choose 8 as the final clustering result.
 
 # Building & Fitting GMM Models
 gmm = GaussianMixture(n_components = 8, random_state = 100).fit(sf_df)
@@ -1547,7 +1547,7 @@ for i in sf_df:
     g.fig.set_figheight(5)
     g.fig.set_figwidth(20)
 
-Observations There are 8 different clusters, which is difficult to describe, but we could see clear difference in their basic information, family condition and consumption power ...
+#Observations There are 8 different clusters, which is difficult to describe, but we could see clear difference in their basic information, family condition and consumption power ...
 
 #Plotting countplot of clusters
 pl = sns.countplot(x=sf_df["Cluster"])
@@ -1615,7 +1615,7 @@ plt.xlabel('Cluster', fontsize=20, labelpad=20)
 plt.ylabel('Expenses', fontsize=20, labelpad=20);
 plt.xticks(rotation=0, ha='center');
 
-Customers from all the segments have spent most of their money on Wine and Meat products
+#Customers from all the segments have spent most of their money on Wine and Meat products
 
 sf_df_purchases = sf_df.groupby('Cluster')[['NumDealsPurchases', 'NumWebPurchases', 'NumCatalogPurchases',
                                                   'NumStorePurchases', 'NumWebVisitsMonth']].sum()
@@ -1628,9 +1628,9 @@ plt.xlabel('Clusters', fontsize=20, labelpad=20)
 plt.ylabel('Purchases', fontsize=20, labelpad=20);
 plt.xticks(rotation=0, ha='center');
 
-Insights:
+#Insights:
 
-1 and 5 Customers mostly likely to do store purchasing Most of the web and catalog purchases are also done by the customers from 1 and 5 segments 1 and 5 categoriesnalso like to buy from the stores Deal purchases are common among the Gold and Silver customers 5 category customers made the most number of web visits while customers from 2 segment have least web visits
+#1 and 5 Customers mostly likely to do store purchasing Most of the web and catalog purchases are also done by the customers from 1 and 5 segments 1 and 5 categoriesnalso like to buy from the stores Deal purchases are common among the Gold and Silver customers 5 category customers made the most number of web visits while customers from 2 segment have least web visits
 
 sf_df_campaign = sf_df.groupby('Cluster')[['AcceptedCmp1', 'AcceptedCmp2', 'AcceptedCmp3', 'AcceptedCmp4',
                                                   'AcceptedCmp5', 'Response']].sum()
@@ -1643,20 +1643,20 @@ plt.xlabel('Clusters', fontsize=20, labelpad=20)
 plt.ylabel('Promotion Counts', fontsize=20, labelpad=20);
 plt.xticks(rotation=0, ha='center');
 
-cluster 4 accepted the most of the offers from the comapany Compaign 1, 5 and 1 seems to be the most successful one's cluster 5 showed the least interest in the promotion campaings of the company
+#cluster 4 accepted the most of the offers from the comapany Compaign 1, 5 and 1 seems to be the most successful one's cluster 5 showed the least interest in the promotion campaings of the company
 
 ax = sns.barplot(x = sf_df.Cluster, y = sf_df.NumWebVisitsMonth, palette = "muted")
 ax.set_ylabel("Number of Website Visits", labelpad = 20)
 ax.set_xlabel(None)
 ax.set_title("Average Website Visits in the Last Month by Cluster")
 
-Interesting enough, the groups that make up the most website visits are the groups that spend the least.
+#Interesting enough, the groups that make up the most website visits are the groups that spend the least.
 
 temp = sf_df.loc[:, ["Wines", "Fruits", "Meat", "Sweets", "Cluster"]]
 temp = temp.groupby("Cluster").sum()
 temp.head()
 
-Seems like customers spend the most money on Wine. Lets investigate this product category further.
+#Seems like customers spend the most money on Wine. Lets investigate this product category further.
 
 sns.set_theme(style="whitegrid")
 pal = ["#2E003E", "#3D1E6D", "#8874A3", "#D5CEE1"]
@@ -1666,79 +1666,79 @@ sns.barplot(x=sf_df["Cluster"], y=sf_df["Income"], palette=pal)
 plt.title("Income vs Cluster", size=15)
 plt.show()
 
-Observations:
+#Observations:
 
-The cluster which has the highest income is Cluster 6 Income of Cluster 2 is relatively lower than incomes of other clusters
+#The cluster which has the highest income is Cluster 6 Income of Cluster 2 is relatively lower than incomes of other clusters
 
 plt.figure(figsize=(12, 8))
 sns.boxenplot(x=sf_df["Cluster"], y=sf_df["Expenses"], palette=pal)
 plt.title("Money Spent vs Clusters", size=15)
 plt.show()
 
-Observations:
+#Observations:
 
-Cluster 0 and 5 are spending the least money Cluster 2 is the cluster that spends the most money among other clusters
+#Cluster 0 and 5 are spending the least money Cluster 2 is the cluster that spends the most money among other clusters
 
 plt.figure(figsize=(12, 8))
 sns.boxplot(x=sf_df["Cluster"], y=sf_df["NumTotalPurchases"], palette=pal)
 plt.title("Purchase Number vs Cluster", size=15)
 plt.show()
 
-Observations:
+#Observations:
 
-Cluster 2 has the highest purchase number Cluster 2 does the least shopping
+#Cluster 2 has the highest purchase number Cluster 2 does the least shopping
 
 plt.figure(figsize=(12, 8))
 sns.barplot(x=sf_df["Cluster"], y=sf_df["Kids"], palette=pal)
 plt.title("Kids Number vs Cluster", size=15)
 plt.show()
 
-Observations:
+#Observations:
 
-Cluster 2 has nearly no child Cluster 6 has the most children among other clusters
+#Cluster 2 has nearly no child Cluster 6 has the most children among other clusters
 
 plt.figure(figsize=(12, 8))
 sns.violinplot(x=sf_df["Cluster"], y=sf_df["TotalAcceptedCmp"], palette=pal)
 plt.title("Number of Purchase with Discount vs Clusters", size=15)
 plt.show()
 
-Observations:
+#Observations:
 
-Cluster 1 benefits least from the discounts Cluster 7 has the highest number of purchase with discount
+#Cluster 1 benefits least from the discounts Cluster 7 has the highest number of purchase with discount
 
-Conclusion¶
+#Conclusion¶
 
-Cluster 2: Is least-earner
+#Cluster 2: Is least-earner
 
-Cluster 0 Has a tendecy to spend less money
+#Cluster 0 Has a tendecy to spend less money
 
-Cluster 1 Has least purchase number (shop-hater)
+#Cluster 1 Has least purchase number (shop-hater)
 
-Cluster 6: Has the highest income
+#Cluster 6: Has the highest income
 
-Cluster 2 Spends the most money
+#Cluster 2 Spends the most money
 
-Cluster 7 Has the highest purchase number (shop-lover)
+#Cluster 7 Has the highest purchase number (shop-lover)
 
-Cluster 2 Has the least number of children
+#Cluster 2 Has the least number of children
 
-Cluster 1 Is the one that benefits least from discounts
+#Cluster 1 Is the one that benefits least from discounts
 
-Cluster 6: Has most children
+#Cluster 6: Has most children
 
-Cluster 7 Is the cluster that shops most when there is a discount
+#Cluster 7 Is the cluster that shops most when there is a discount
 
-Marketing Suggestions¶ Cluster 0 spends the least money So, you should gather the information about the its location and know the reason behind this.
+#Marketing Suggestions¶ Cluster 0 spends the least money So, you should gather the information about the its location and know the reason behind this.
 
-Cluster 1 has the least purchase number and benefits least from discounts. So, you should gather the information about the its location and increase the discount rates at shops located at those locations.
+#Cluster 1 has the least purchase number and benefits least from discounts. So, you should gather the information about the its location and increase the discount rates at shops located at those locations.
 
-Cluster 2 is the least earner ,spends the most money and has the least number of children
+#Cluster 2 is the least earner ,spends the most money and has the least number of children
 
-Cluster 6 has the highest income and most children. It can also be observed that they shave the least purchase number . Meaning that you need to consider discounting. In addition to that, if you make the discounts with a slogan like "Make Your Child Happy" in shops at those locations where these people live, because it could remind them that they are parents, it would possibly increase the number of sales.
+#Cluster 6 has the highest income and most children. It can also be observed that they shave the least purchase number . Meaning that you need to consider discounting. In addition to that, if you make the discounts with a slogan like "Make Your Child Happy" in shops at those locations where these people live, because it could remind them that they are parents, it would possibly increase the number of sales.
 
-Cluster 7 has the highest purchase number(shop lover) and it is the highest shopping cluster when there is discount.Shops discount policy should be implemented on other shops in the remaining clusters
+#Cluster 7 has the highest purchase number(shop lover) and it is the highest shopping cluster when there is discount.Shops discount policy should be implemented on other shops in the remaining clusters
 
-Affinity Clustering Model
+#Affinity Clustering Model
 
 from sklearn.cluster import AffinityPropagation
 #Initiating the Affinity Clustering model
@@ -1786,7 +1786,7 @@ pl=sns.boxenplot(y=sf_df["NumDealsPurchases"],x=sf_df["Cluster"])
 pl.set_title("Number of Deals Purchased")
 plt.show()
 
-BIRCH
+#BIRCH
 
 from sklearn.cluster import Birch
 #Initiating the Birch Clustering model
@@ -1962,9 +1962,9 @@ k_lst.append(visualizer.elbow_value_)
 
 print('Mean K: ', np.mean(k_lst))
 
-Different Scoring Metrics for K-means The above scoring parameter metric is set to distortion, which computes the sum of squared distances from each point to its assigned center.
+#Different Scoring Metrics for K-means The above scoring parameter metric is set to distortion, which computes the sum of squared distances from each point to its assigned center.
 
-The silhouette score calculates the mean Silhouette Coefficient of all samples, while the calinski_harabasz score computes the ratio of dispersion between and within clusters. I also use these 2 metrics to get clusters.
+#The silhouette score calculates the mean Silhouette Coefficient of all samples, while the calinski_harabasz score computes the ratio of dispersion between and within clusters. I also use these 2 metrics to get clusters.
 
 # Calinski_harabasz Scoring Matrix
 plt.figure(figsize=(18,5))
@@ -1981,11 +1981,11 @@ visualizer.fit(PCA_ds)        # Fit the data to the visualizer
 visualizer.finalize()
 plt.show()
 
-Choosing K value When we use inertia, Calinski_harabasz scorer and Silhouette scorer, we all get elbow point at K=2;
+#Choosing K value When we use inertia, Calinski_harabasz scorer and Silhouette scorer, we all get elbow point at K=2;
 
-While Distortion scorer says that K=7, we could see distortion scores come at eblow point at about 3.
+#While Distortion scorer says that K=7, we could see distortion scores come at eblow point at about 3.
 
-Considering all the clutering results, I finally choose K=2 to cluster the customers.
+#Considering all the clutering results, I finally choose K=2 to cluster the customers.
 
 # Building & Fitting K-Means Models
 kmeans = KMeans(n_clusters=2, init = 'k-means++').fit(PCA_ds)
@@ -2011,7 +2011,7 @@ for i in sf_df:
     g.fig.set_figheight(5)
     g.fig.set_figwidth(20)
 
-Observations The income level of this 2 groups shows clear difference. Cluster 2 have obvious higher income than Cluster 1. Cluster 2 have less kids(as well as less children) at home. Most of them have no kids and only a few(about 5%) have 1 kids; While most customers in cluster 2 have 1 kid, and some have 2 kids. Cluster 2 customers buy much more amount products than cluster 1 customers. Almost every products shows the same trend. This result indicates that people in cluster 2 have more consumption power, and they are more likely to purchase goods from the company. The total number of accepting offers in compaigns is also consistent with my conclusion. The group with more consumption power(cluster 2) accept more offers than the other. Also, people in cluster 1 have much more purchasing numbers in different place. Among all these places, they may prefer to buy products in real store. It is not surprising since most of our customers are in their middle age or old age. The last small obervation is that cluster 2 have some extreme situations in product purchasing amount. Some customer in cluster 2 purchasing unusual amount of products. One plausible assumption is that they might buy a lot of goods for special festivals or parties. Checking their purchasing date may verify this assumption.
+#Observations The income level of this 2 groups shows clear difference. Cluster 2 have obvious higher income than Cluster 1. Cluster 2 have less kids(as well as less children) at home. Most of them have no kids and only a few(about 5%) have 1 kids; While most customers in cluster 2 have 1 kid, and some have 2 kids. Cluster 2 customers buy much more amount products than cluster 1 customers. Almost every products shows the same trend. This result indicates that people in cluster 2 have more consumption power, and they are more likely to purchase goods from the company. The total number of accepting offers in compaigns is also consistent with my conclusion. The group with more consumption power(cluster 2) accept more offers than the other. Also, people in cluster 1 have much more purchasing numbers in different place. Among all these places, they may prefer to buy products in real store. It is not surprising since most of our customers are in their middle age or old age. The last small obervation is that cluster 2 have some extreme situations in product purchasing amount. Some customer in cluster 2 purchasing unusual amount of products. One plausible assumption is that they might buy a lot of goods for special festivals or parties. Checking their purchasing date may verify this assumption.
 
 from sklearn.cluster import *
 kmeans = KMeans(n_clusters=4)
@@ -2035,7 +2035,7 @@ sns.scatterplot(data = sf_df,x = 'Expenses',y = 'Income',hue = 'Cluster',palette
 
 sns.boxenplot(x = 'Cluster' , y ='Expenses' ,data = sf_df);
 
-Group 1: high spending and average income Group 2: high spending and high income
+#Group 1: high spending and average income Group 2: high spending and high income
 
 # Spent vs Products
 Product_vars = ['Wines',
@@ -2061,7 +2061,7 @@ for i in Place_vars:
     sns.boxplot(x='Cluster',y=i,data= sf_df)
     plt.show()
 
-Conclusion Segmentation¶ Write a short text of what is the key business takeaway of the recommendation. Group 1 high spending and high income More number of store purchases and catalog purchases Family size is atmost 3 Atmost 1 child Spend on all products Group 2 low spending and low income more web visits at most 2 children have only 1 teen
+#Conclusion Segmentation¶ Write a short text of what is the key business takeaway of the recommendation. Group 1 high spending and high income More number of store purchases and catalog purchases Family size is atmost 3 Atmost 1 child Spend on all products Group 2 low spending and low income more web visits at most 2 children have only 1 teen
 
 sns.countplot(x=sf_df["TotalAcceptedCmp"],hue=sf_df["Cluster"]);
 
@@ -2081,7 +2081,7 @@ p.gca().add_artist(my_circle)
 
 plt.show()
 
-Cluster 1 is the biggets cluster, around 55 % of all customers. Clusters 45 %
+#Cluster 1 is the biggets cluster, around 55 % of all customers. Clusters 45 %
 
 plt.figure(figsize=(16,5))
 plt.title(f'Customers income by cluster')
@@ -2090,7 +2090,7 @@ plt.show()
 
 sf_df.query('Income > 140000')
 
-And the income outliers are distributed in 3rd cluster
+#And the income outliers are distributed in 3rd cluster
 
 plt.figure(figsize=(16,5))
 plt.title(f'Customers amount spent by clusters')
@@ -2102,7 +2102,7 @@ plt.title(f'Customers amount spent by clusters')
 ax = sns.boxplot(data=sf_df, x='Cluster', y='NumTotalPurchases', palette=palette, showfliers=False)
 plt.show()
 
-Cluster 1 is the most active and frequent buyers
+#Cluster 1 is the most active and frequent buyers
 
 plt.figure(figsize=(16,5))
 plt.title(f'Countplot of education degrees by clusters')
@@ -2119,7 +2119,7 @@ plt.title(f'Countplot of education degrees by clusters')
 sns.countplot(data=sf_df, x='Education_Postgraduate', hue='Cluster', palette=palette)
 plt.show()
 
-The Basic degree is presented mostly in 1st cluster
+#The Basic degree is presented mostly in 1st cluster
 
 fig, axes = plt.subplots(2,2, figsize=(16, 10))
 k = 0
@@ -2150,9 +2150,9 @@ for i in range(1, 5):
 
 plt.tight_layout()
 
-We see that:
+#We see that:
 
-The biggest interest in campaign 5 showed Cluster 1 and 2 Campaign acceptance is relatively lower than any campaign The biggest interest in campaign 3 showed Cluster 1 and 2 Campaign acceptance is relatively high than any campaign was relatively higher than any campaign The last campaign was succesfull in all clusters
+#The biggest interest in campaign 5 showed Cluster 1 and 2 Campaign acceptance is relatively lower than any campaign The biggest interest in campaign 3 showed Cluster 1 and 2 Campaign acceptance is relatively high than any campaign was relatively higher than any campaign The last campaign was succesfull in all clusters
 
 complains_by_cluster = (sf_df.groupby(by='Cluster')['Complain'].sum()
                                       .divide(sf_df['Cluster'].value_counts())
@@ -2165,18 +2165,18 @@ ax.set_xticklabels(ax.get_xticklabels(), rotation=0)
 
 plt.show()
 
-Cluster 1 purchases less, but complains more, thats interesting
+#Cluster 1 purchases less, but complains more, thats interesting
 
-The most successful campaigns: 3, the last The least successful campaigns: 1, 2, 4, 5 (0 acceptance in 2 and 5 campaigns) Complain the most
+#The most successful campaigns: 3, the last The least successful campaigns: 1, 2, 4, 5 (0 acceptance in 2 and 5 campaigns) Complain the most
 
 sns.scatterplot(data = sf_df,x=sf_df["Income"], y=sf_df["Expenses"],hue=sf_df["Cluster"])
 plt.title("Cluster's Profile Based On Income And Spending")
 plt.legend()
 plt.show()
 
-cluster1:high income, high spending
+#cluster1:high income, high spending
 
-cluster2:high income, average spending
+#cluster2:high income, average spending
 
 cl = ['#FAD3AE', '#855E46', '#FE800F', '#890000']
 plt.figure(figsize=(14,8))
@@ -2189,7 +2189,7 @@ sns.boxenplot(x=sf_df["Cluster"], y=sf_df["Expenses"], palette=cl)
 plt.title("Total Amount Spent")
 plt.show()
 
-cluster 2 spend more compared to cluster 1
+#cluster 2 spend more compared to cluster 1
 
 #Plotting the number of deals purchased
 plt.figure()
@@ -2197,9 +2197,9 @@ sns.boxenplot(y=sf_df["NumTotalPurchases"],x=sf_df["Cluster"])
 plt.title("Number of Deals Purchased")
 plt.show()
 
-cluster 1 purchase more compared to cluster 2
+#cluster 1 purchase more compared to cluster 2
 
-Customer profile
+#Customer profile
 
 plt.figure()
 
@@ -2222,20 +2222,20 @@ plt.title("Count Of Education")
 plt.xlabel(" Postgraduate Education")
 plt.show()
 
-Majority of our population Have obtained graduate and postgraduate Education
+#Majority of our population Have obtained graduate and postgraduate Education
 
-Cluster 2 has relatively lower deals used per customer eventhough their spend is considerbly higher cluster 1 . This shows that Cluster 2 doesn't care as much about deals as compared to Cluster 1.
+#Cluster 2 has relatively lower deals used per customer eventhough their spend is considerbly higher cluster 1 . This shows that Cluster 2 doesn't care as much about deals as compared to Cluster 1.
 
-Clusters High Income highest Spend(Cluster 1): These are the customers that have high income and highest spend per customer. Their deals per customer is also the lowest indicating that they aren't as concerned with deals compared to other clusters. HIgh Income high Spend(Cluster 2): These are the customers that have high income and high spend per customer. Their deals per customer is lower 1.
+#Clusters High Income highest Spend(Cluster 1): These are the customers that have high income and highest spend per customer. Their deals per customer is also the lowest indicating that they aren't as concerned with deals compared to other clusters. HIgh Income high Spend(Cluster 2): These are the customers that have high income and high spend per customer. Their deals per customer is lower 1.
 
 sns.pairplot(sf_df, vars= ['Kids','Expenses','TotalAcceptedCmp','NumTotalPurchases'])
 plt.show();
 
-removed outliers
+#removed outliers
 
-Age greater than 100 Income above 600,000
+#Age greater than 100 Income above 600,000
 
-So we have the customers with all three education level in each cluster Cluster 0 is mostly consist of graduate and post graduate customers and 4or5 undergraduates Cluster 1 is similar to cluster 0 regarding education level of customers Cluster 0 has most number of graduates and post graduates and very few undergraduates Cluster 1 has least number of postgraduates and third estsmall number of undergraduate than any other cluster
+#So we have the customers with all three education level in each cluster Cluster 0 is mostly consist of graduate and post graduate customers and 4or5 undergraduates Cluster 1 is similar to cluster 0 regarding education level of customers Cluster 0 has most number of graduates and post graduates and very few undergraduates Cluster 1 has least number of postgraduates and third estsmall number of undergraduate than any other cluster
 
 # Now lets findout how  many customers from each cluster has partner and see if we find something interesting
 plt.figure(figsize=(12, 8))
@@ -2247,7 +2247,7 @@ plt.figure(figsize=(12, 8))
 sns.countplot(x='Clusters', data=sf_df, hue='Marital_Status_Taken')
 plt.show()
 
-We got see similar trend among each cluster. All clusters consists of customers which have partner and which are single. They all have more number customers having partner in each cluster Cluster 0 has more number of customers with partner as compared to others
+#We got see similar trend among each cluster. All clusters consists of customers which have partner and which are single. They all have more number customers having partner in each cluster Cluster 0 has more number of customers with partner as compared to others
 
 # Find out the customers which have kids or tenns in different clusters
 plt.figure(figsize=(12, 8))
@@ -2255,21 +2255,21 @@ sns.barplot(x=sf_df["Clusters"], y=sf_df["Kids"])
 plt.title("Kids Number vs Clusters", size=15)
 plt.show()
 
-Cluster 0 has the customers with most number of kids or teens in household Cluster 1 has the customers with least amount of kids or teens in household
+#Cluster 0 has the customers with most number of kids or teens in household Cluster 1 has the customers with least amount of kids or teens in household
 
 # Now lets findout how  many customers from each cluster has exact number of kids or teens in household
 plt.figure(figsize=(12, 8))
 sns.countplot(x='Clusters', data=sf_df, hue='Kids')
 plt.show()
 
-All the customers from Cluster 0 have kids or teens in household. Most customers have 1 kid, some have 2 and few have 3 children in household Maximum number of customers from cluster 1 have 1 child in household. Hoever there are few with 3 children in household. Cluster 2 largly consist of customers having 1 child in household. some have no children at all in household and remaining have 2 children in household. Cluster 1 is similar to cluster 2. It consist of customers with 1 children and very few with no kids in household
+#All the customers from Cluster 0 have kids or teens in household. Most customers have 1 kid, some have 2 and few have 3 children in household Maximum number of customers from cluster 1 have 1 child in household. Hoever there are few with 3 children in household. Cluster 2 largly consist of customers having 1 child in household. some have no children at all in household and remaining have 2 children in household. Cluster 1 is similar to cluster 2. It consist of customers with 1 children and very few with no kids in household
 
 # Now lets findout how  many customers from each cluster have complained
 plt.figure(figsize=(12, 8))
 sns.countplot(x='Clusters', data=sf_df,hue='Complain')
 plt.show()
 
-We already know there really few compaints, and this shouldn't be taken for granted Customers from cluster 1 have no complaints and cluster has only 2 complain
+#We already know there really few compaints, and this shouldn't be taken for granted Customers from cluster 1 have no complaints and cluster has only 2 complain
 
 # Lets findout income of customers with in clusters
 plt.figure(figsize=(12, 8))
@@ -2277,14 +2277,14 @@ sns.barplot(x=sf_df["Clusters"], y=sf_df["Income"])
 plt.title("Income vs Clusters", size=15)
 plt.show()
 
-Even tho the number of customers in cluster 2 were very less than cluster 3, still the income of customers within cluste 2 is more than cluster 3. Despite the fact that there are more undergraduates in cluster 2. same goes for cluster 1 and 2. Cluster 1 customer has more income than cluster 2 . Cluster 1 has maximum number of customers than any other cluster.
+#Even tho the number of customers in cluster 2 were very less than cluster 3, still the income of customers within cluste 2 is more than cluster 3. Despite the fact that there are more undergraduates in cluster 2. same goes for cluster 1 and 2. Cluster 1 customer has more income than cluster 2 . Cluster 1 has maximum number of customers than any other cluster.
 
 # It will be interesting to know the income of customers in each clusters depending on the number of children they have in household
 plt.figure(figsize=(12, 8))
 sns.barplot(x=sf_df["Clusters"], y=sf_df["Income"], hue=df['Kids'])
 plt.show()
 
-For cluster 0 customers with no children earn the highest Still customers with 2 or 3 chidren earning slightly more. But the interesting to note is cluster 1 has very few customers with 3 children in household and still they are matching up with other customers. Same goes for the cluster 2. It largely consist of customers with 0 childrenand very few with 2 children but still their income is similar
+#For cluster 0 customers with no children earn the highest Still customers with 2 or 3 chidren earning slightly more. But the interesting to note is cluster 1 has very few customers with 3 children in household and still they are matching up with other customers. Same goes for the cluster 2. It largely consist of customers with 0 childrenand very few with 2 children but still their income is similar
 
 # Lets see how customers spent money on different products depending on their income
 MntColumns= ['Wines', 'Fruits',
@@ -2299,7 +2299,7 @@ for i, col in enumerate(MntColumns):
 
 plt.show()
 
-Cluster 0 and 1 have high income and have spent more money on different products Cluster 2 and 3 has low income and have spent less money We can see that clusters are overlapping , thats why clusters have customers with similar characteristics
+#Cluster 0 and 1 have high income and have spent more money on different products Cluster 2 and 3 has low income and have spent less money We can see that clusters are overlapping , thats why clusters have customers with similar characteristics
 
 # Barplot to see money spent by different customers on differen products
 _, ax1 = plt.subplots(4,2, figsize=(25,22))
@@ -2308,7 +2308,7 @@ for i, col in enumerate(MntColumns):
 
 plt.show()
 
-Cluster 2 has spent more money than any other clusters on all products Cluster 0 is second in spending most money, cluster 2 has spent more money on wines and goldproducts than any other products Cluster 0 has spent less money as compared to 1 and 2 clusters. Still cluster 0 has spent more money on wines and goldproducts than 1 and 3 cluster 3 has spent least money as compared to other clusters
+#Cluster 2 has spent more money than any other clusters on all products Cluster 0 is second in spending most money, cluster 2 has spent more money on wines and goldproducts than any other products Cluster 0 has spent less money as compared to 1 and 2 clusters. Still cluster 0 has spent more money on wines and goldproducts than 1 and 3 cluster 3 has spent least money as compared to other clusters
 
 # Let's see if there are any customers withspecific educational background in clusters spending money on specific products
 _, ax1 = plt.subplots(4,2, figsize=(25,22))
@@ -2331,7 +2331,7 @@ for i, col in enumerate(MntColumns):
 
 plt.show()
 
-A very interesting thing we can see is, undergraduates from all clusters are spending more money on sweets, fish, gold and fruits than customers with any other education background
+#A very interesting thing we can see is, undergraduates from all clusters are spending more money on sweets, fish, gold and fruits than customers with any other education background
 
 # Let's see if there's any difference between money spent by customers with partner and without partner within different clusters
 _, ax1 = plt.subplots(4,2, figsize=(25,22))
@@ -2347,7 +2347,7 @@ for i, col in enumerate(MntColumns):
 
 plt.show()
 
-Theres not much difference or trend that we can see. All customers within all clusters have similar trend. Money spent by singles and customers with partner is similar , theres not much
+#Theres not much difference or trend that we can see. All customers within all clusters have similar trend. Money spent by singles and customers with partner is similar , theres not much
 
 # Let's see if there's any difference between money spent by customers with partner and without partner within different clusters
 _, ax1 = plt.subplots(4,2, figsize=(25,22))
@@ -2356,7 +2356,7 @@ for i, col in enumerate(MntColumns):
 
 plt.show()
 
-As we saw earlier all the clusters have very few senior citisens and youg adults, still the money spent by them is equal or more than customers from other age groups Senior citizens are more into buying wines and fish
+#As we saw earlier all the clusters have very few senior citisens and youg adults, still the money spent by them is equal or more than customers from other age groups Senior citizens are more into buying wines and fish
 
 _, ax1 = plt.subplots(4,2, figsize=(25,22))
 for i, col in enumerate(MntColumns):
@@ -2364,55 +2364,55 @@ for i, col in enumerate(MntColumns):
 
 plt.show()
 
-we can see that customers with 3 children in household are more into buying fuits, meat and sweet products
+#we can see that customers with 3 children in household are more into buying fuits, meat and sweet products
 
 plt.figure(figsize=(12, 8))
 sns.boxenplot(x=sf_df["Clusters"], y=sf_df["NumTotalPurchases"])
 plt.title("Purchase Number vs Clusters", size=15)
 plt.show()
 
-cluster 3 does the least shopping, followed by cluster 1 Cluster 2 and 0 does the most shopping
+#cluster 3 does the least shopping, followed by cluster 1 Cluster 2 and 0 does the most shopping
 
 plt.figure(figsize=(12, 8))
 sns.boxenplot(x=sf_df["Clusters"], y=sf_df["NumDealsPurchases"])
 plt.show()
 
-Cluster 2 has the highest number of purchases on discount deals
+#Cluster 2 has the highest number of purchases on discount deals
 
-CUSTOMER PROFILING
+#CUSTOMER PROFILING
 
-Cluster 0
+#Cluster 0
 
-Well Educated
-Majority have no Kids
-High Income
-High Expenditure
-High number of purchases. More shopping
+#Well Educated
+#Majority have no Kids
+#High Income
+#High Expenditure
+#High number of purchases. More shopping
 
-Cluster 1
+#Cluster 1
 
-Most number of customers
-Graduates & Post Graduates
-Has 1 kid or Teen
-Highest Income
-Above Average expenditure
+#Most number of customers
+#Graduates & Post Graduates
+#Has 1 kid or Teen
+#Highest Income
+#Above Average expenditure
 
-Cluster 3
+#Cluster 3
 
-Least number of customers
-Graduates & post graduates
-Has 1 kid or teen
-Average Income
-Low expenditure
-Leastshopping
+#Least number of customers
+#Graduates & post graduates
+#Has 1 kid or teen
+#Average Income
+#Low expenditure
+#Leastshopping
 
-Cluster 2
+#Cluster 2
 
-Graduates and Postgraduates
-Low Income
-Has 0 or 1 or 2 children
-High expenditure
-Highest shopping
+#Graduates and Postgraduates
+#Low Income
+#Has 0 or 1 or 2 children
+#High expenditure
+#Highest shopping
 
 sf_df['Education_Undergraduate'].value_counts()
 
@@ -2420,24 +2420,24 @@ plt.scatter(sf_df['Income'], sf_df['Expenses'], c = sf_df['Cluster'], cmap = cma
 plt.xlabel('Income')
 plt.ylabel('Expenses')
 
-Income and Spending¶ The following scatter plot shows that:
+#Income and Spending¶ The following scatter plot shows that:
 
-Cluster 3 (light blue) has an average income and does not spend much on our store. Cluster 0 (purple) has a very high income and spends a lot on our store. Cluster 2 (dark blue), on average, has an above average income and a moderate spending. Cluster 1 (pink) have a high income and spend a fair amount on our store.
+#Cluster 3 (light blue) has an average income and does not spend much on our store. Cluster 0 (purple) has a very high income and spends a lot on our store. Cluster 2 (dark blue), on average, has an above average income and a moderate spending. Cluster 1 (pink) have a high income and spend a fair amount on our store.
 
 fig, axs = plt.subplots(ncols = 2, figsize = (15, 5))
 sns.boxplot(data = sf_df, x = 'Cluster', y = 'Income', ax = axs[0], palette = palette, flierprops={'marker': 'o'})
 sns.boxplot(data = sf_df, x = 'Cluster', y = 'Expenses', ax = axs[1], palette = palette, flierprops={'marker': 'o'})
 fig.tight_layout()
 
-Family Dynamics¶ The following bar graphs show that:
+#Family Dynamics¶ The following bar graphs show that:
 
-Cluster 0 customers usually have one kid.
+#Cluster 0 customers usually have one kid.
 
-Cluster 1 customers have 1 and 2 Child.Either a kid and a teen, or only a teen.
+#Cluster 1 customers have 1 and 2 Child.Either a kid and a teen, or only a teen.
 
-Cluster 2 customers have one child. Either a kid and a teen, or only a teen.They are parents
+#Cluster 2 customers have one child. Either a kid and a teen, or only a teen.They are parents
 
-Cluster 3 customers usually have one child.
+#Cluster 3 customers usually have one child.
 
 fig = plt.figure(figsize = (15, 10))
 columns = 3
@@ -2448,15 +2448,15 @@ for i in range(0, 6):
     sns.countplot(data = sf_df, x = x[i], hue = 'Cluster', palette = palette)
 fig.tight_layout()
 
-Deals and Purchase Channels The following box plots indicate that:
+#Deals and Purchase Channels The following box plots indicate that:
 
-Cluster 1 makes a lot of visits to the company website, but makes few purchases, some online and some at the store.
+#Cluster 1 makes a lot of visits to the company website, but makes few purchases, some online and some at the store.
 
-Cluster 2 does not make many deal purchases and does not visit the website much. They do make a fair amount of catalogue purchases and many store purchases.
+#Cluster 2 does not make many deal purchases and does not visit the website much. They do make a fair amount of catalogue purchases and many store purchases.
 
-Cluster 3 make few deal purchases. They make few store purchases and catalogue purchases. They make some deals purchses and visit the website quite frequently.They have above averageweb purchases
+#Cluster 3 make few deal purchases. They make few store purchases and catalogue purchases. They make some deals purchses and visit the website quite frequently.They have above averageweb purchases
 
-Cluster 0 make the most deal purchases, web purchases and store purchases and visit the website quite a lot. They make the most purchases out of all clusters.
+#Cluster 0 make the most deal purchases, web purchases and store purchases and visit the website quite a lot. They make the most purchases out of all clusters.
 
 fig = plt.figure(figsize = (15, 10))
 columns = 3
@@ -2470,21 +2470,21 @@ for i in range(0, 5):
 plt.show()
 fig.tight_layout()
 
-Conclusion¶ We were able to identify 4 clusters and their characteristics. Here is a summary of what we have learned:
+#Conclusion¶ We were able to identify 4 clusters and their characteristics. Here is a summary of what we have learned:
 
-Cluster 3 - The Conservative 1-Child Spenders: Cluster 0 represents customers with average incomes who exhibit cautious spending habits.They are often parents with one child. They spend evenly among various categories except for web purchses. They make fewer purchases overall.
+#Cluster 3 - The Conservative 1-Child Spenders: Cluster 0 represents customers with average incomes who exhibit cautious spending habits.They are often parents with one child. They spend evenly among various categories except for web purchses. They make fewer purchases overall.
 
-Cluster 0 - The Child High-Income Big Spenders: high-income individuals who are avid spenders, allocating a substantial portion of their income to purchases. and their active engagement in online and store purchases.
+#Cluster 0 - The Child High-Income Big Spenders: high-income individuals who are avid spenders, allocating a substantial portion of their income to purchases. and their active engagement in online and store purchases.
 
-Cluster 2 - The Moderate Family Spenders: Customers with above-average incomes who exhibit moderate spending habits. They are often parents with one child. They mostly spend on wine. While they make fewer purchases compared to other clusters, they show a preference for web purchses.
+#Cluster 2 - The Moderate Family Spenders: Customers with above-average incomes who exhibit moderate spending habits. They are often parents with one child. They mostly spend on wine. While they make fewer purchases compared to other clusters, they show a preference for web purchses.
 
-Cluster 1 - The Wine Enthusiasts with Teenagers: High-income individual who come to our store mostly for wine. they are often parents of Either one or two children. They make the most purchases online .
+#Cluster 1 - The Wine Enthusiasts with Teenagers: High-income individual who come to our store mostly for wine. they are often parents of Either one or two children. They make the most purchases online .
 
 from sklearn.metrics import confusion_matrix,classification_report
 print("ConfusionMatrix \n",confusion_matrix(kmeans.labels_,pred))
 print("classification report \n", classification_report(kmeans.labels_,pred))
 
-ConfusionMatrix 
+#ConfusionMatrix 
 
 #kmeans
 
@@ -2492,9 +2492,9 @@ from sklearn.metrics import confusion_matrix,classification_report
 print("ConfusionMatrix \n",confusion_matrix(kmeans.labels_,yhat_kmeans))
 print("classification report \n", classification_report(kmeans.labels_,yhat_kmeans))
 
-Recommendations:¶ Customers from cluster 2 and 3 spend the similar amount of money per item but just buy more. I would recommend to add more expensive products for such customers in categories wine and meat in order to increase sells.
+#Recommendations:¶ Customers from cluster 2 and 3 spend the similar amount of money per item but just buy more. I would recommend to add more expensive products for such customers in categories wine and meat in order to increase sells.
 
-Mini-Batch K-Means
+#Mini-Batch K-Means
 
 from sklearn.cluster import MiniBatchKMeans
 #Initiating the MiniBatchKMeans Clustering model
@@ -2536,7 +2536,7 @@ pl=sns.boxenplot(y=sf_df["NumDealsPurchases"],x=sf_df["Clusters"])
 pl.set_title("Number of Deals Purchased")
 plt.show()
 
-Mean Shift
+#Mean Shift
 
 from sklearn.cluster import MeanShift
 #Initiating the MeanShift Clustering model
@@ -2579,7 +2579,7 @@ pl=sns.boxenplot(y=sf_df["NumDealsPurchases"],x=sf_df["Clusters"])
 pl.set_title("Number of Deals Purchased")
 plt.show()
 
-OPTICS
+#OPTICS
 
 from sklearn.cluster import OPTICS
 #Initiating the OPTICS Clustering model

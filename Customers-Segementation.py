@@ -660,7 +660,7 @@ for i in range(len(obj)):
             sns.set(rc={'figure.figsize':(11,12)})
             plt.show()
 
-for all who do basic income is less Income for single is almost equal for 2nCycle,master,PhD less for basic income for graduation,masters, PhD is averagely above 40k average income for basic is 10k to 20k¶
+#for all who do basic income is less Income for single is almost equal for 2nCycle,master,PhD less for basic income for graduation,masters, PhD is averagely above 40k average income for basic is 10k to 20k¶
 
 # Education & Response
 plt.figure(figsize=(15,5))
@@ -672,9 +672,9 @@ plt.subplot(122)
 sns.histplot(data=df_fin, x="Marital_Status", hue="Response",stat="percent", multiple="stack")
 plt.show()
 
-From the left figure, we can find that the compaign acceptance rate in high education groups(Master and PhD) are higher than that in low education groups.
+#From the left figure, we can find that the compaign acceptance rate in high education groups(Master and PhD) are higher than that in low education groups.
 
-From the right plot, we find that the single people tend to say yes to this compaign.
+#From the right plot, we find that the single people tend to say yes to this compaign.
 
 # Kid Home & Response
 plt.figure(figsize=(15,5))
@@ -687,7 +687,7 @@ sns.histplot(data=df_fin, x="Teenhome", hue="Response", multiple="stack", stat="
 plt.xticks([0, 1, 2])
 plt.show()
 
-It seems that customers with no kids and no teens at home are more likely to accept the offer in this campaign than customers with 2 kids but less than customers with one kid.
+#It seems that customers with no kids and no teens at home are more likely to accept the offer in this campaign than customers with 2 kids but less than customers with one kid.
 
 # Income (by Response/Marital_Status/Education/Kidhome)
 plt.figure(figsize=(15,10))

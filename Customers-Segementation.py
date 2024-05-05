@@ -610,7 +610,7 @@ def categories(d):
     df_wine2 = pd.DataFrame((d.loc[:,('MntWines', 'MntFruits', 'MntMeatProducts', 'MntFishProducts', 'MntSweetProducts', 'MntGoldProducts')]).melt())
     fig = px.pie(df_wine2, values='value', names='variable',  width=800, height=400)
     fig.show()
-The main category that customer spends the most money (50%) is a wine category. The second important category is meat.
+#The main category that customer spends the most money (50%) is a wine category. The second important category is meat.
 
 wine = df_fin.groupby('Education')['MntWines'].mean().reset_index()
 fruits = df_fin.groupby('Education')['MntFruits'].mean().reset_index()

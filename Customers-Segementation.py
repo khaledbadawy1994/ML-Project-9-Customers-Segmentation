@@ -50,21 +50,21 @@ from tensorflow.keras.layers import Dense
 from xgboost import XGBClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
-%matplotlib inline
+#%matplotlib inline
 pd.set_option('display.max_rows', 50)
 
-Loading the Data
+#Loading the Data
 
 df = pd.read_csv('/content/drive/MyDrive/marketing_campaign.csv', delimiter = '\t')
 df.head()
 
-Understanding the Data
+#Understanding the Data
 
 df.columns
 
-Data Cleaning
+#Data Cleaning
 
-Missing Values
+#Missing Values
 
 df.info()
 
@@ -129,7 +129,7 @@ print("Values of column 'Education' are:",df["Education"].unique())
 
 display(df[0:5].T)
 
-Checking correlation between the attributes
+#Checking correlation between the attributes
 
 df.head()
 
@@ -164,7 +164,7 @@ df.Income = mean_imputer.fit_transform(df[["Income"]])
 
 df.isnull().sum()
 
-** Outliers**
+#** Outliers**
 
 # Identify number of columns by type
 
@@ -299,7 +299,7 @@ plt.pie(x=x, colors=colors, labels=['2n Cycle', 'Basic', 'Master', 'PhD', 'Gradu
         wedgeprops={ 'width': 0.5},autopct = '%1.1f%%')
 plt.title('Propotion of Education')
 
-Univariant Analysis
+#Univariant Analysis
 
 #CHECKING NUMBER OF UNIQUE CATEGORIES PRESENT IN THE "Year_Birth"
 print("Unique categories present in the Year_Birth:",df_fin["Year_Birth"].value_counts())

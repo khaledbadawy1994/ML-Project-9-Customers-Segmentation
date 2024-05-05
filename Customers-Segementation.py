@@ -727,9 +727,9 @@ sns.kdeplot(
 )
 plt.gca().axes.get_yaxis().set_visible(False)
 
-The plots about Income VS 4 different Discrete Variables give us some interesting information.¶ 1) The high income groups have larger possibility to accept offer in the compaign, as we can see the income distributions of people who say 'yes' and 'no' have a slight difference. 2) There are no clear income difference between people with different maritial status. 3) Customers only with basic education have significantly lower income, while bachelors, masters, and PhDs do not have clear difference in income level. 4) It seems that customers who don't have any kids at home have higher income levels.
+#The plots about Income VS 4 different Discrete Variables give us some interesting information.¶ 1) The high income groups have larger possibility to accept offer in the compaign, as we can see the income distributions of people who say 'yes' and 'no' have a slight difference. 2) There are no clear income difference between people with different maritial status. 3) Customers only with basic education have significantly lower income, while bachelors, masters, and PhDs do not have clear difference in income level. 4) It seems that customers who don't have any kids at home have higher income levels.
 
-Feature Engineering and bivariant analysis
+#Feature Engineering and bivariant analysis
 
 #give each feature a smaller set of values
 edu= {"Basic": "Undergraduate", "2n Cycle": "Undergraduate", "Graduation": "Graduate", "Master": "Postgraduate", "PhD": "Postgraduate"}
@@ -800,9 +800,9 @@ df_fin.Income.describe()
 
 df_fin.Expenses.describe()
 
-The income of our customers varies by quite a bit with a normal distribution. The average salary seems to be around 52,000 USD and average spending around 200 USD.
+#The income of our customers varies by quite a bit with a normal distribution. The average salary seems to be around 52,000 USD and average spending around 200 USD.
 
-Seems to be a pretty even distribution of old and new customers. This suggests that the company seems to be growing at a steady rate.
+#Seems to be a pretty even distribution of old and new customers. This suggests that the company seems to be growing at a steady rate.
 
 pd.crosstab(df_fin['Education'],df_fin['Expenses'],margins=True).style.background_gradient(cmap='Greys')
 
@@ -910,7 +910,7 @@ ax = sns.barplot(x="Age", y="Expenses", data=df_fin,palette="rainbow")
 print("Total categories in the feature Marital_Status:\n", df_fin["Marital_Status"].value_counts(), "\n")
 print("Total categories in the feature Education:\n", df_fin["Education"].value_counts())
 
-Total categories in the feature Education:
+#Total categories in the feature Education:
 
 #Feature Engineering
 
@@ -930,11 +930,11 @@ ax.set(xlabel=None,
 
 df_fin.describe()
 
-The above stats show some discrepancies in mean Income and Age and max Income and age.
+#The above stats show some discrepancies in mean Income and Age and max Income and age.
 
-Do note that max-age is 84 years, As I calculated the age that would be today (i.e. 2024) and the data is old.
+#Do note that max-age is 84 years, As I calculated the age that would be today (i.e. 2024) and the data is old.
 
-I must take a look at the broader view of the data. I will plot some of the selected features.
+#I must take a look at the broader view of the data. I will plot some of the selected features.
 
 df_fin[df_fin['Income']>80000]
 
@@ -968,26 +968,26 @@ def hist_with_vline(data, column):
 
 hist_with_vline(df_fin, 'Income')
 
-The customers earn more than 80k; these ones are outliers also. I'll remove these too.
+#The customers earn more than 80k; these ones are outliers also. I'll remove these too.
 
-PS: I can remove outliers by Z score method or Tukey's IQR method; however, I wanted to remove the outliers by certain columns (the ones seemed important to me such as age, income)
+#PS: I can remove outliers by Z score method or Tukey's IQR method; however, I wanted to remove the outliers by certain columns (the ones seemed important to me such as age, income)
 
 df_fin = df_fin[df_fin['Income']<80000]
 
 hist_with_vline(df_fin, 'Income')
 
-Observation Most of the customers earn between 20k to 60k.
+#Observation Most of the customers earn between 20k to 60k.
 
-All the sold products histograms are right skewed. Majority of the customers buys items lower than certain amounts.
+#All the sold products histograms are right skewed. Majority of the customers buys items lower than certain amounts.
 
-On the other hand, Wines are the most sold items (15884) and Meat producs follow with 364k, while the Fruit and Sweet products are the least sold items (6860 and 5878 respectively).
+#On the other hand, Wines are the most sold items (15884) and Meat producs follow with 364k, while the Fruit and Sweet products are the least sold items (6860 and 5878 respectively).
 
 plt.figure(figsize=(8,8))
 sns.barplot(x=df_fin['Marital_Status'], y=df_fin['Expenses'], hue = df_fin["Education"])
 plt.title("Analysis of the Correlation between Marital Status and Expenses with respect to Education")
 plt.show()
 
-Observation: Less number of single customers and very high expenses for single customers.
+#Observation: Less number of single customers and very high expenses for single customers.
 
 plt.figure(figsize=(8,8))
 plt.hist("Expenses", data = df_fin[df_fin["Marital_Status"] == "Taken"], alpha = 0.5, label = "Taken")
@@ -1044,14 +1044,9 @@ _ = sns.scatterplot(x ='Income',y = 'Expenses', data = df_fin)
 _ = plt.title('Income vs Expenses')
 _ = plt.ylabel('Total Items Bought')
 
-There is a linear relation with income and number of items bought.
+#There is a linear relation with income and number of items bought.
 
 df_fin.Education.value_counts()
-Education
-Graduate         571
-Postgraduate     507
-Undergraduate    157
-Name: count, dtype: int64
 
 fig, (ax0, ax1 )= plt.subplots(1,2 , figsize=(12,6))
 _= sns.barplot(x = 'Education', y = 'Income', data = df_fin, ax = ax0)
@@ -1065,11 +1060,11 @@ _ = ax0.text(s = f"n :{df_fin.Education.value_counts()[2]}", x = 1.75, y = 10000
 _ = ax0.text(s = f"n :{df_fin.Education.value_counts()[3]}", x = 2.75, y = 10000)
 _ = ax0.text(s = f"n :{df_fin.Education.value_counts()[4]}", x = 3.75, y = 10000)
 
-Customers with a Postgraduate earn and spend more than any other customers with different educational background. And, not so surprisingly Undergraduate level educated customers earn and spend the least amount of money.
+#Customers with a Postgraduate earn and spend more than any other customers with different educational background. And, not so surprisingly Undergraduate level educated customers earn and spend the least amount of money.
 
-And when we investigate the number of customers in each group, it is wise to investigate what customers buy with different educational backgrounds.
+#And when we investigate the number of customers in each group, it is wise to investigate what customers buy with different educational backgrounds.
 
-Does Children effect market shopping?
+#Does Children effect market shopping?
 
 fig, (ax0,ax1) = plt.subplots(1,2,figsize=(12,6), sharex=True)
 _ = sns.barplot(x= df_fin.Kids, y= df_fin.Income, ax=ax0)
@@ -1089,9 +1084,9 @@ sns.set_theme()
 
 sns.pairplot(df_fin[cols_to_plot])
 
-Insights:
+#:
 
-Middle age adults spent much more than the other age groups
+#Middle age adults spent much more than the other age groups
 
 plt.figure(figsize=(20, 10))
 ax = sns.histplot(data = df_fin.Income, color = "midnightblue")
@@ -1102,9 +1097,9 @@ plt.yticks( fontsize=16)
 plt.xlabel('Income', fontsize=20, labelpad=20)
 plt.ylabel('Counts', fontsize=20, labelpad=20);
 
-Insights:
+#Insights:
 
-The salaries of the customers have normal distribution with most of the customers earning between 25000 and 85000
+#The salaries of the customers have normal distribution with most of the customers earning between 25000 and 85000
 
 Products = df_fin[['Wines', 'Fruits', 'Meat', 'Fish', 'Sweets', 'Gold']]
 product_means = Products.mean(axis=0).sort_values(ascending=False)
@@ -1116,11 +1111,11 @@ sns.barplot(data=product_means_df, x='Products', y='Expenses');
 plt.xlabel('Products', fontsize=20, labelpad=20)
 plt.ylabel('Expenses', fontsize=20, labelpad=20);
 
-Insights:
+#Insights:
 
-Wine and Meats products are the most famous products among the customers
+#Wine and Meats products are the most famous products among the customers
 
-Sweets and Fruits are not being purchased often
+#Sweets and Fruits are not being purchased often
 
 childrenspending = df_fin.groupby('Kids')['Expenses'].mean().sort_values(ascending=False)
 childrenspending_df = pd.DataFrame(list(childrenspending.items()), columns=['Kids', 'Expenses'])
@@ -1133,7 +1128,7 @@ plt.yticks( fontsize=16)
 plt.xlabel('Kids', fontsize=20, labelpad=20)
 plt.ylabel('Expenses', fontsize=20, labelpad=20);
 
-The families with no children and with one children earn and spend more than families with children.
+#The families with no children and with one children earn and spend more than families with children.
 
 # Group the data based on whether there are children and draw a scatter plot matrix
 pairplot = data.loc[:, ['Income', 'Age', 'Expenses', 'Recency', 'Is_Parent']]

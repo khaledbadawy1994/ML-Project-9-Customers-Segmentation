@@ -1325,9 +1325,9 @@ fig = sns.countplot(x=PCA_ds["Clusters"], palette= "Accent")
 fig.set_title("Distribution Of The Clusters")
 plt.show()
 
-From the above plot, it can be clearly seen that cluster 0 is our biggest set of customers closely followed by cluster 1. We can explore what each cluster is spending on for the targeted marketing strategies.
+#From the above plot, it can be clearly seen that cluster 0 is our biggest set of customers closely followed by cluster 1. We can explore what each cluster is spending on for the targeted marketing strategies.
 
-Let us next explore how did our campaigns do in the past.
+#Let us next explore how did our campaigns do in the past.
 
 # Visualize the clustering results according to income and expenditure
 plt.figure(figsize=(12, 6))

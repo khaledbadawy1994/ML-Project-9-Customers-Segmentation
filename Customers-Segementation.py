@@ -633,7 +633,7 @@ ax.legend()
 
 plt.show()
 
-People with basic education spent much less at the store, so product managers shouls focus their activity primarily on the people with high education. Intriguily, PhD candidates spent the most for wine which is the main business source.
+#People with basic education spent much less at the store, so product managers shouls focus their activity primarily on the people with high education. Intriguily, PhD candidates spent the most for wine which is the main business source.
 
 to_plot = ['Income', 'Recency', 'Marital_Status']
 sns.pairplot(df_fin[to_plot], hue='Marital_Status', palette='Set1')

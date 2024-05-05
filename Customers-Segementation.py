@@ -1378,8 +1378,8 @@ plt.show()
 sc=max(silhouette_scores)
 number_of_clusters=silhouette_scores.index(sc)+2
 print("Number of Cluster Required is : ", number_of_clusters)
-Number of Cluster Required is :  2
-We should chose an amount of clusters for which there are no wide fluctuations in the size of the clusters, represented by the width of each one. Therefore, 4 seems like the right amount of clusters.
+
+#We should chose an amount of clusters for which there are no wide fluctuations in the size of the clusters, represented by the width of each one. Therefore, 4 seems like the right amount of clusters.
 
 from sklearn.metrics import silhouette_score
 def visualize_silhouette_layer(data):

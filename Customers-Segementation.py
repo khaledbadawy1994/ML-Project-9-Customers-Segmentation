@@ -758,7 +758,7 @@ df_fin['Kids'] = df_fin['Kidhome'] + df_fin['Teenhome']
 
 df_fin['Expenses'] = df_fin['MntWines'] + df_fin['MntFruits'] + df_fin['MntMeatProducts'] + df_fin['MntFishProducts'] + df_fin['MntSweetProducts'] + df_fin['MntGoldProducts']
 df_fin['Expenses'].head(10)
-]
+
 sns.barplot(x = df_fin['Expenses'],y = df_fin['Education']);
 plt.title('Total Expense based on the Education Level');
 

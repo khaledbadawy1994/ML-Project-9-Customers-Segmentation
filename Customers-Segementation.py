@@ -284,7 +284,7 @@ df.rename(columns = {'MntGoldProds':'MntGoldProducts'}, inplace = True)
 
 df['Income'].skew()
 
-📌 If the skewness is between -0.5 and 0.5, the data is fairly symmetrical. If the skewness is between -1 and – 0.5 or between 0.5 and 1, the data are moderately skewed. If the skewness is less than -1 or greater than 1, the data are highly skewed.
+#📌 If the skewness is between -0.5 and 0.5, the data is fairly symmetrical. If the skewness is between -1 and – 0.5 or between 0.5 and 1, the data are moderately skewed. If the skewness is less than -1 or greater than 1, the data are highly skewed.
 
 #drop un-needed columns
 df_fin= df.drop(["ID","Z_CostContact", "Z_Revenue"], axis=1)

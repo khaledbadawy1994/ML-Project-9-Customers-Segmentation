@@ -937,7 +937,6 @@ df_fin[df_fin['Income']>80000]
 df_fin =df_fin[(df_fin["Age"]<90)]
 df_fin = df_fin[(df_fin["Income"]<80000)]
 print("The total number of data-points after removing the outliers are:", len(df_fin))
-The total number of data-points after removing the outliers are: 1235
 
 df_fin
 

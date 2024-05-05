@@ -1298,7 +1298,7 @@ ax.scatter(x,y,z, c="maroon", marker="o" )
 ax.set_title("A 3D Projection Of Data In The Reduced Dimension")
 plt.show()
 
-Elbow Method - Now Lets Find The Number Of Clusters :-
+#Elbow Method - Now Lets Find The Number Of Clusters :-
 
 # Quick examination of elbow method to find numbers of clusters to make.
 print('Elbow Method to determine the number of clusters to be formed:')

@@ -740,10 +740,6 @@ df_fin["Marital_Status"]= df_fin["Marital_Status"].replace(status)
 #new values
 print("Education Values: ", df_fin["Education"].unique())
 print("Marital_Status Values:", df_fin["Marital_Status"].unique())
-Education Values:  ['Graduate', 'Postgraduate', 'Undergraduate']
-Categories (3, object): ['Undergraduate', 'Graduate', 'Postgraduate']
-Marital_Status Values: ['Single', 'Taken']
-Categories (2, object): ['Taken', 'Single']
 
 sns.countplot(df_fin.Marital_Status)
 sns.set(rc={'figure.figsize':(4,4)})

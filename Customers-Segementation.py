@@ -70,7 +70,6 @@ df.info()
 
 df= df.dropna()
 print("The total number of data-points after removing the rows with missing values are:", len(df))
-The total number of data-points after removing the rows with missing values are: 2216
 
 def outlier_thresholds(dataframe, variable):
     quartile1 = dataframe[variable].quantile(0.01)

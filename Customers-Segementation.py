@@ -1350,7 +1350,7 @@ pl.set_title("Count Of Promotion Accepted")
 pl.set_xlabel("Number Of Total Accepted Promotions")
 plt.show()
 
-There has not been an overwhelming response to the campaigns so far. Very few participants overall. Moreover, no one part take in all 5 of them. Perhaps better-targeted and well-planned campaigns are required to boost sales.
+#There has not been an overwhelming response to the campaigns so far. Very few participants overall. Moreover, no one part take in all 5 of them. Perhaps better-targeted and well-planned campaigns are required to boost sales.
 
 Personal = ["Kidhome","Teenhome", "Age", "Kids", "Is_Parent", "Education_Undergraduate","Education_Graduate","Education_Postgraduate","Marital_Status_Single","Marital_Status_Taken"]
 
@@ -1359,7 +1359,7 @@ for i in Personal:
     sns.jointplot(x=sf_df[i], y=sf_df["Expenses"], hue =PCA_ds["Clusters"], kind="kde", palette='Set2')
     plt.show()
 
-Silhouette Score
+#Silhouette Score
 
 from sklearn.metrics import silhouette_score
 

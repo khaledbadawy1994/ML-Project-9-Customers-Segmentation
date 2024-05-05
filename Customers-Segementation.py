@@ -1414,8 +1414,8 @@ print("Labels K-means: ", labels_kmeans)
 
 # Coefficient Silhouette - Score
 print("The K-means silhouette coefficient is:", silhouette_score(sf_df, labels))
-The K-means silhouette coefficient is: 0.08799378332986799
-Insight: The silhouette coefficient varies from -1 to 1. If it is positive, we consider it good, and the closer to 1, the better.
+
+#Insight: The silhouette coefficient varies from -1 to 1. If it is positive, we consider it good, and the closer to 1, the better.
 
 # Statistical summary of data by cluster
 

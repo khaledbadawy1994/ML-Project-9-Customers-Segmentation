@@ -476,7 +476,7 @@ sns.countplot(x = 'Year_Birth', data = df_fin)
 plt.xticks(rotation=40)
 plt.show()
 
-Yea , I knew it, this plot make more sense Comments on Graph Most of our customers are in range of 40-57, Hurray... Surprise Surprise In this dataset i got customer with age 121, 122,128. I think he should go for Guiness World record, Yeaaa, You are wrong..... Not for his Age, I am thinking about his fitness level, That he came to buy, Enough talking... I think it is outlier
+#Yea , I knew it, this plot make more sense Comments on Graph Most of our customers are in range of 40-57, Hurray... Surprise Surprise In this dataset i got customer with age 121, 122,128. I think he should go for Guiness World record, Yeaaa, You are wrong..... Not for his Age, I am thinking about his fitness level, That he came to buy, Enough talking... I think it is outlier
 
 plt.figure(figsize=(18,6))
 sns.set_theme(style = 'darkgrid')

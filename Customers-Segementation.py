@@ -486,11 +486,11 @@ plt.xlabel('Age by 2024')
 plt.xticks(rotation=40)
 plt.show()
 
-1.2) Education
+#1.2) Education
 
-Possibilities a) It may be possible that the one with more education having more chances to have good salary than others. b) If he is having good salary then There will be high money flow going in and out, So chances to buy high quality products, high value products are higher. c) Usually high educated people want to invest there time more productvely compare to others, mean less time to spend on the groceries. There are chances that number of products purchased per visit are more than others.
+#Possibilities a) It may be possible that the one with more education having more chances to have good salary than others. b) If he is having good salary then There will be high money flow going in and out, So chances to buy high quality products, high value products are higher. c) Usually high educated people want to invest there time more productvely compare to others, mean less time to spend on the groceries. There are chances that number of products purchased per visit are more than others.
 
-Comments
+#Comments
 
 plt.figure(figsize=(18,8))
 sns.set_theme(style = 'darkgrid')

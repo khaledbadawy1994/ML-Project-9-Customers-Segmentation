@@ -1814,7 +1814,7 @@ pl=sns.boxenplot(y=sf_df["NumDealsPurchases"],x=sf_df["Clusters"])
 pl.set_title("Number of Deals Purchased")
 plt.show()
 
-K - means Clustering :-
+#K - means Clustering :-
 
 #Initiating the KMeans Clustering model
 kmeans = KMeans(n_clusters =4 , init = 'k-means++', random_state = 50)

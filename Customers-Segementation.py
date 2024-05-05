@@ -1278,7 +1278,7 @@ print("Dataframe to be used for further modelling:")
 df1.head()
 
 df1=df1.drop(['Dt_Customer','Education_Undergraduate','Education_Graduate','Education_Postgraduate','Marital_Status_Taken','Marital_Status_Single','Age_Group_Young adult','Age_Group_Adult','Age_Group_Middel Aged','Age_Group_Senior Citizen'],axis=1)
-DIMENSIONALITY REDUCTION
+#DIMENSIONALITY REDUCTION
 
 #Initiating PCA to reduce dimentions aka features to 3
 from sklearn.decomposition import PCA

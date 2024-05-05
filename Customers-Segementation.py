@@ -457,11 +457,11 @@ plt.show()
 sns.countplot(x = "Marital_Status", data = df_fin)
 plt.show()
 
-I don't know what these labels are :) YOLO, absurd as marital status?
+#I don't know what these labels are :) YOLO, absurd as marital status?
 
-Married earn more money, Together follow them as a 2nd in the list; IF we see only the total amount they earn. However we can ignore Alone, absurd and YOLO ones. It's better to see what the other ones bought.
+#Married earn more money, Together follow them as a 2nd in the list; IF we see only the total amount they earn. However we can ignore Alone, absurd and YOLO ones. It's better to see what the other ones bought.
 
-If we think about the number differences of each group, getting sum of Wine, Meat etc would not be a good idea. I'd prefer means here. First, see table by grouby function.
+#If we think about the number differences of each group, getting sum of Wine, Meat etc would not be a good idea. I'd prefer means here. First, see table by grouby function.
 
 var = 'Response'
 sns.countplot(x=var, data=df_fin)

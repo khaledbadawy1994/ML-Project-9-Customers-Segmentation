@@ -1336,9 +1336,9 @@ pl.set_title("Cluster's Profile Based On Income And Spent")
 plt.legend()
 plt.show()
 
-Income and expenditure graph shows cluster mode
+#Income and expenditure graph shows cluster mode
 
-Group 0: High expenditure and average income Group 1: High consumption and high income Group 2: Low expenditure and low income Group 3: Low expenditure and High income
+#Group 0: High expenditure and average income Group 1: High consumption and high income Group 2: Low expenditure and low income Group 3: Low expenditure and High income
 
 plt.figure(figsize=(12,6))
 sns.swarmplot(x=PCA_ds["Clusters"], y=sf_df["Expenses"], alpha=0.9, palette= 'Set2' )
